@@ -1,0 +1,28 @@
+
+<table>
+  <tr>
+    <th>name:</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @categories.each do |category| %>
+   <% unless category.sub_category_id.present? %>
+    <tr>
+      <td><%= category.name %></td>
+      <td><%= link_to 'Show', admin_category_path(category) %></td>
+      <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
+       <td><%= link_to 'Destroy', admin_category_path(category),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %> 
+  <% end %>
+</table>
+      <%= link_to 'New Categories', new_admin_category_path %>
+ 
+
+
+
+
+
+ 

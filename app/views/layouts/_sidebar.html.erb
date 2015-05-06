@@ -1,0 +1,29 @@
+
+
+<div class="col-md-3">
+    <div class="well">
+        <div>
+            <ul class="nav">
+              <% Category.where(:sub_category_id => nil).each do |category| %>
+                <li>
+                    <label label-default="" class="tree-toggle nav-header">
+                      <%=category.subcategories.blank? ? (link_to category.name, product_path(category)) : category.name%>
+                    </label>
+                    <ul class="nav tree">
+                      <% category.subcategories.each do |subcategory|%>
+                        <li><%=link_to subcategory.name, product_path(subcategory) %>
+                        </li>
+                      <%end%>
+                    </ul>
+                </li>   
+              <%end%>             
+            </ul>
+        </div>
+    </div>
+</div>
+
+ <script>
+$('.tree-toggle').click(function () {
+  $(this).parent().children('ul.tree').toggle(200);
+});
+</script>

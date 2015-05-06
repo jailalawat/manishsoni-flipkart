@@ -1,0 +1,7 @@
+<% @product.each do |pro|%>
+<%= image_tag(pro.image.url(:thumb)) %><br>
+  <h1><i><%= link_to pro.name,"#"%></i></h1>
+  <td><%= link_to "Add to card",add_to_card_path(pro) %></td>
+      <% end %>
+
+      

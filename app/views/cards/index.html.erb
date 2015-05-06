@@ -1,0 +1,6 @@
+	<% @cards.each do |card|%>    
+	<tr>
+        <td><%= card.product.name %></td>
+        <td> <%= image_tag(card.product.image.url(:thumb)) %><br></td>
+        </tr>
+ <% end %>

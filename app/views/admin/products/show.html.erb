@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Category Name:</strong>
+  <%= @product.category.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Prise:</strong>
+  <%= @product.prise %>
+</p>
+
+<p>
+  <strong>Discription:</strong>
+  <%= @product.discription %>
+</p>
+
+
+<%= link_to 'Back', admin_category_products_path %>

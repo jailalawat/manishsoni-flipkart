@@ -1,0 +1,48 @@
+<p>
+  <strong>category name:</strong>
+  <%= @category.name %>
+</p>
+<hr>
+<p>
+
+<tr>
+  <% if @category.subcategories.present? %>
+  	<%@category.subcategories.each do |subcategory| %>	
+    <td><%= link_to 'new product', new_admin_category_product_path(subcategory) %></td>
+  	 <strong> subcategory name:</strong>
+   		<td><mark><%= subcategory.name %></mark></td><br/>
+      <hr>
+      
+      <%subcategory.products.each do |p| %>
+      <%= image_tag(p.image.url(:thumb)) %><br>
+      <strong>subcategory products name:</strong>
+      <td><%= p.name %></td><br/>
+      <% end %>
+   	<% end %>
+	<% end %>
+	</tr>
+</p>
+<br>
+<h2>category Products</h2>
+ <% if @category.products.present? %>
+<%  @category.products.each do |product| %>
+  <%= image_tag(product.image.url(:thumb)) %>
+  <p>
+    <strong>name:</strong>
+    <%= product.name %>
+  </p>
+  <p>
+    <strong>prise:</strong>
+    <%= product.prise %>
+  </p>
+  <p>
+    <strong>discription :</strong>
+    <%= product.discription  %>
+  </p>
+<% end %>
+<% end %>
+
+
+<%= link_to 'Back', admin_categories_path %>
+<%= link_to 'new product', new_admin_category_product_path(@category) %>
+ 
